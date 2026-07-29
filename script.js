@@ -190,4 +190,39 @@ document.addEventListener('DOMContentLoaded', () => {
     isDragging = false;
   });
 });
+// ===== XỬ LÝ PHÁT NHẠC NỀN TỰ ĐỘNG =====
+const bgMusic = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-toggle-btn');
+
+if (bgMusic && musicBtn) {
+  const startAudio = () => {
+    bgMusic.play().then(() => {
+      musicBtn.classList.remove('paused');
+    }).catch(err => {
+      console.log("Autoplay blocked, waiting for user click.");
+    });
+  };
+
+  window.addEventListener('DOMContentLoaded', startAudio);
+
+  const handleFirstInteraction = () => {
+    startAudio();
+    document.removeEventListener('click', handleFirstInteraction);
+    document.removeEventListener('touchstart', handleFirstInteraction);
+  };
+
+  document.addEventListener('click', handleFirstInteraction);
+  document.addEventListener('touchstart', handleFirstInteraction);
+
+  musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (bgMusic.paused) {
+      bgMusic.play();
+      musicBtn.classList.remove('paused');
+    } else {
+      bgMusic.pause();
+      musicBtn.classList.add('paused');
+    }
+  });
+}
 
