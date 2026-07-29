@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bio Link - Dark Aesthetic</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="container">
+    <!-- Banner Header -->
+    <div class="banner">
+      <img src="https://picsum.photos/800/300?random=1" alt="Banner" />
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile-header">
+      <div class="avatar-container">
+        <img src="https://picsum.photos/150?random=2" alt="Avatar" class="avatar" />
+        <span class="status-dot"></span>
+      </div>
+      <h1 class="username">YOUR NAME</h1>
+      <p class="tagline">@username • Custom Title</p>
+      <p class="bio-text">Welcome to my personal page! DM for collabs.</p>
+
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-discord"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-paypal"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <div class="divider"><span>LINKS</span></div>
+
+    <!-- Links List -->
+    <div class="links-list">
+      <a href="https://github.com" target="_blank" class="link-card">
+        <div class="link-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="link-info">
+          <h3>Free Model Collection • GitHub</h3>
+          <p>github.com/your-repo</p>
+        </div>
+      </a>
+
+      <a href="https://twitter.com" target="_blank" class="link-card">
+        <div class="link-icon"><i class="fa-brands fa-x-twitter"></i></div>
+        <div class="link-info">
+          <h3>Twitter / X Profile</h3>
+          <p>x.com/your-handle</p>
+        </div>
+      </a>
+
+      <a href="https://discord.com" target="_blank" class="link-card">
+        <div class="link-icon"><i class="fa-brands fa-discord"></i></div>
+        <div class="link-info">
+          <h3>Official Community • Discord</h3>
+          <p>discord.gg/your-server</p>
+        </div>
+      </a>
+
+      <a href="https://ko-fi.com" target="_blank" class="link-card">
+        <div class="link-icon"><i class="fa-solid fa-mug-hot"></i></div>
+        <div class="link-info">
+          <h3>Buy me a coffee</h3>
+          <p>ko-fi.com/your-name</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- TikTok Card Widget -->
+    <div class="tiktok-card">
+      <div class="tiktok-header">
+        <i class="fa-brands fa-tiktok"></i> TIKTOK
+      </div>
+      <div class="tiktok-body">
+        <img src="https://picsum.photos/150?random=2" class="tiktok-avatar" alt="TikTok Avatar" />
+        <div class="tiktok-info">
+          <h4>Your Name</h4>
+          <p>@username</p>
+          <div class="tiktok-stats">
+            <span><strong>100K</strong> Followers</span>
+            <span><strong>1.5M</strong> Likes</span>
+          </div>
+        </div>
+      </div>
+      <a href="https://tiktok.com" target="_blank" class="btn-follow">Follow on TikTok</a>
+    </div>
+
+    <footer class="footer">
+      Powered by <strong>YourName</strong>
+    </footer>
+  </div>
+
+  <!-- Fixed Music Toggle Button -->
+  <button id="music-btn" class="music-toggle" title="Toggle Music">
+    <i class="fa-solid fa-volume-xmark" id="music-icon"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
