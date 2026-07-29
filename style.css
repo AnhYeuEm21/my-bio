@@ -578,6 +578,50 @@ body::before {
   transition: transform 0.1s ease-out;
   user-select: none;
 }
+/* Khung chứa tổng thể (giống thiết kế bo góc của web bạn) */
+.favorite-container {
+  background: rgba(255, 255, 255, 0.05); /* Mền tối mờ */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* Các thẻ con chứa từng item */
+.favorite-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #ffffff;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.card-sub {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  margin: 4px 0 0 0;
+}
+
+.sub-header {
+  color: #4ade80; /* Màu xanh lá tươi chuẩn Spotify / Favorite */
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 16px 0 12px 0;
+  text-transform: uppercase;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
