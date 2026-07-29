@@ -12,21 +12,20 @@
 
   <!-- Audio Player -->
   <audio id="bg-music" loop>
-    <!-- Thay link mp3 trực tiếp bài MAITE của bạn vào đây nếu có -->
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+    <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- TRANG CHÍNH (MAIN PAGE) -->
   <div id="main-page" class="container">
     <!-- Banner Header -->
     <div class="banner">
-      <img src="1000092802.jpg" alt="Banner" />
+      <img src="avatar.jpg" alt="Banner" />
     </div>
 
     <!-- Profile Info -->
     <div class="profile-header">
       <div class="avatar-container">
-        <img src="1000092802.jpg" alt="Avatar" class="avatar" />
+        <img src="avatar.jpg" alt="Avatar" class="avatar" />
         <span class="status-dot"></span>
       </div>
       <h1 class="username">Nagikaze</h1>
@@ -69,7 +68,7 @@
     <div id="donate-section" class="donate-card hidden">
       <h3>Cảm ơn bạn đã ủng hộ! ❤️</h3>
       <p>Mã QR Ngân Hàng BIDV</p>
-      <img src="BIDV_1784100251131.jpg" alt="QR BIDV" class="qr-image" />
+      <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
     </div>
 
     <!-- KHUNG SPOTIFY PLAYER - MY FAVORITE MUSIC -->
@@ -78,7 +77,6 @@
         <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
       </div>
       <div class="spotify-body">
-        <!-- Thumbnail Avatar Bài hát -->
         <img src="https://i.ytimg.com/vi/ToYMt2mDer4/hqdefault.jpg" alt="Song Avatar" class="song-avatar" />
         
         <div class="song-details">
@@ -87,14 +85,12 @@
             <p class="song-artist">Lancelot</p>
           </div>
           
-          <!-- Thanh thời gian tiến trình -->
           <div class="progress-container">
             <span id="current-time">0:00</span>
             <input type="range" id="seek-bar" value="0" max="100" />
             <span id="duration-time">0:00</span>
           </div>
 
-          <!-- Bộ nút điều khiển -->
           <div class="player-controls">
             <button id="btn-rewind" title="Tua lùi 10s">
               <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
@@ -115,15 +111,17 @@
     </footer>
   </div>
 
-  <!-- TRANG GIỚI THIỆU SERVER DISCORD -->
-  <div id="server-page" class="container hidden">
+  <!-- TRANG GIỚI THIỆU SERVER DISCORD (Rộng rãi hơn) -->
+  <div id="server-page" class="container server-container hidden">
     <button id="btn-back" class="btn-back">
       <i class="fa-solid fa-arrow-left"></i> Về Trang Chủ
     </button>
 
     <div class="server-preview-card">
-      <img src="anh server.png" alt="Server Discord Preview" class="server-banner-img" />
+      <!-- Ảnh xem trước Server Phóng To -->
+      <img src="server.png" alt="Server Discord Preview" class="server-banner-img" />
       
+      <!-- Nút Bấm Kéo Dài Ngang -->
       <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
         Thấy hứng thú đúng không! Bấm vô dòng này để vô server nhé!
       </a>
