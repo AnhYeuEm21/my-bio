@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bio Link</title>
+  <title>Bio Link - Nagikaze</title>
   <link rel="stylesheet" href="style.css" />
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -29,8 +29,8 @@
         <span class="status-dot"></span>
       </div>
       <h1 class="username">Nagikaze</h1>
-      <p class="tagline">@nagikaze - Một thk nghèo vcl</p>
-      <p class="bio-text">Chào mừng đến với trang cá nhân của toi! Nhắn tin với toi nếu muốn nhờ gì đó.</p>
+      <p class="tagline">@nagikaze • Một thk nghèo vcl</p>
+      <p class="bio-text">Chào mừng đến với trang cá nhân của tôi! Nhắn tin để hợp tác.</p>
 
       <!-- Social Icons -->
       <div class="social-icons">
@@ -40,19 +40,30 @@
       </div>
     </div>
 
-    <!-- Phần chữ LINKS (Mũi tên chỉ xuống & không gạch ngang) -->
+    <!-- Phần chữ LINKS -->
     <div class="divider">
       <span>LINKS <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
     <!-- Links List -->
     <div class="links-list">
-      <!-- Link 1: Mở trang giới thiệu Server -->
-      <div class="link-card" id="btn-open-server">
+      <!-- Link 1: MY SERVER DISCORD -->
+      <div class="link-card" id="btn-toggle-server">
         <div class="link-icon"><i class="fa-brands fa-discord"></i></div>
         <div class="link-info">
-          <h3>MY SERVER DISCORD</h3>
+          <h3>MY SERVER • DISCORD</h3>
           <p>discord.gg/2P2qMRatau</p>
+        </div>
+      </div>
+
+      <!-- Khung xổ xuống của Server Discord -->
+      <div id="server-section" class="expand-card hidden">
+        <div class="server-preview-box">
+          <p class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Bấm vào ảnh để phóng to & di chuyển</p>
+          <img src="server.png" alt="Server Discord Preview" id="server-preview-img" class="clickable-img" />
+          <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
+            Thấy hứng thú đúng không! Bấm vô dòng này để vô server nhé!
+          </a>
         </div>
       </div>
 
@@ -64,16 +75,41 @@
           <p>Ủng hộ mình qua mã QR ngân hàng</p>
         </div>
       </div>
+
+      <!-- Khung QR Donate -->
+      <div id="donate-section" class="expand-card hidden">
+        <div class="donate-box">
+          <h3>Cảm ơn bạn đã ủng hộ! ❤️</h3>
+          <p>Mã QR Ngân Hàng BIDV</p>
+          <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
+        </div>
+      </div>
+
+      <!-- Link 3: MUA HỘ ĐỒ -->
+      <div class="link-card" id="btn-toggle-service">
+        <div class="link-icon"><i class="fa-solid fa-gamepad"></i></div>
+        <div class="link-info">
+          <h3>Nhận mua hộ đồ</h3>
+          <p>Dịch vụ mua game, robux, thẻ visa...</p>
+        </div>
+      </div>
+
+      <!-- Khung xổ xuống Dịch vụ mua hộ -->
+      <div id="service-section" class="expand-card hidden">
+        <div class="service-box">
+          <ul class="service-list">
+            <li><i class="fa-solid fa-check"></i> Mua Game Steam</li>
+            <li><i class="fa-solid fa-check"></i> Mua Robux Chính Hãng</li>
+            <li><i class="fa-solid fa-check"></i> Mua Đồ Cần Thẻ Visa</li>
+          </ul>
+          <div class="service-note">
+            <strong>Lưu ý 🛑: Nhận bank tiền, nếu mua thẻ thì chỉ nhận thẻ Garena 🐔 và thẻ Viettel 🇻🇳</strong>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Khung QR Donate (Mặc định ẩn) -->
-    <div id="donate-section" class="donate-card hidden">
-      <h3>Cảm ơn bạn đã ủng hộ! ❤️</h3>
-      <p>Mã QR Ngân Hàng BIDV</p>
-      <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
-    </div>
-
-    <!-- KHUNG SPOTIFY PLAYER - MY FAVORITE MUSIC -->
+    <!-- KHUNG SPOTIFY PLAYER -->
     <div class="spotify-card">
       <div class="spotify-header">
         <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
@@ -113,18 +149,21 @@
     </footer>
   </div>
 
-  <!-- TRANG GIỚI THIỆU SERVER DISCORD -->
-  <div id="server-page" class="container server-container hidden">
-    <button id="btn-back" class="btn-back">
-      <i class="fa-solid fa-arrow-left"></i> Về Trang Chủ
-    </button>
+  <!-- MODAL XEM ẢNH PHÓNG TO (IMAGE VIEWER) -->
+  <div id="image-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    
+    <!-- Thanh công cụ Zoom & Close -->
+    <div class="modal-toolbar">
+      <button id="zoom-in-btn" title="Phóng to"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+      <button id="zoom-out-btn" title="Thu nhỏ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+      <button id="zoom-reset-btn" title="Về mặc định"><i class="fa-solid fa-arrows-rotate"></i></button>
+      <button id="modal-close-btn" class="close-btn" title="Đóng"><i class="fa-solid fa-xmark"></i></button>
+    </div>
 
-    <div class="server-preview-card">
-      <img src="server.png" alt="Server Discord Preview" class="server-banner-img" />
-      
-      <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
-        Thấy hứng thú đúng không! Bấm vô dòng này để vô server nhé!
-      </a>
+    <!-- Khung chứa ảnh di chuyển -->
+    <div class="modal-body" id="modal-body">
+      <img src="" alt="Zoomable Image" id="modal-img" />
     </div>
   </div>
 
