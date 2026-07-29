@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const music = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle-btn');
+  const playingStatus = document.getElementById('now-playing-status');
   
   // Nút mở các section xổ xuống
   const btnToggleServer = document.getElementById('btn-toggle-server');
@@ -11,59 +13,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnToggleService = document.getElementById('btn-toggle-service');
   const serviceSection = document.getElementById('service-section');
 
-  // Spotify Player
-  const btnPlayPause = document.getElementById('btn-play-pause');
-  const playIcon = document.getElementById('play-icon');
-  const btnRewind = document.getElementById('btn-rewind');
-  const btnForward = document.getElementById('btn-forward');
-  const seekBar = document.getElementById('seek-bar');
-  const currentTimeEl = document.getElementById('current-time');
-  const durationTimeEl = document.getElementById('duration-time');
-
-  let isPlaying = false;
-
-  function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  // Xử lý bật / tắt nhạc đồng bộ
+  function setMusicState(playing) {
+    if (playing) {
+      musicBtn.classList.remove('paused');
+      musicBtn.querySelector('i').classList.add('fa-spin');
+      playingStatus.classList.remove('paused');
+    } else {
+      musicBtn.classList.add('paused');
+      musicBtn.querySelector('i').classList.remove('fa-spin');
+      playingStatus.classList.add('paused');
+    }
   }
 
-  btnPlayPause.addEventListener('click', () => {
-    if (isPlaying) {
-      music.pause();
-      playIcon.classList.remove('fa-pause');
-      playIcon.classList.add('fa-play');
+  function playMusic() {
+    music.play().then(() => {
+      setMusicState(true);
+    }).catch(err => {
+      console.log("Autoplay bị chặn, chờ tương tác người dùng.");
+      setMusicState(false);
+    });
+  }
+
+  // Tự động phát khi chạm bất kỳ đâu lần đầu
+  const handleFirstInteraction = () => {
+    playMusic();
+    document.removeEventListener('click', handleFirstInteraction);
+    document.removeEventListener('touchstart', handleFirstInteraction);
+  };
+
+  document.addEventListener('click', handleFirstInteraction);
+  document.addEventListener('touchstart', handleFirstInteraction);
+
+  // Click nút tròn đĩa nhạc ở góc dưới
+  musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (music.paused) {
+      playMusic();
     } else {
-      music.play().then(() => {
-        playIcon.classList.remove('fa-play');
-        playIcon.classList.add('fa-pause');
-      }).catch(err => {
-        console.log("Trình duyệt chặn phát nhạc tự động:", err);
-      });
-    }
-    isPlaying = !isPlaying;
-  });
-
-  btnRewind.addEventListener('click', () => {
-    music.currentTime = Math.max(0, music.currentTime - 10);
-  });
-
-  btnForward.addEventListener('click', () => {
-    music.currentTime = Math.min(music.duration, music.currentTime + 10);
-  });
-
-  music.addEventListener('timeupdate', () => {
-    if (music.duration) {
-      const progressPercent = (music.currentTime / music.duration) * 100;
-      seekBar.value = progressPercent;
-      currentTimeEl.textContent = formatTime(music.currentTime);
-      durationTimeEl.textContent = formatTime(music.duration);
-    }
-  });
-
-  seekBar.addEventListener('input', () => {
-    if (music.duration) {
-      music.currentTime = (seekBar.value / 100) * music.duration;
+      music.pause();
+      setMusicState(false);
     }
   });
 
@@ -92,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // BỘ ĐIỀU KHIỂN IMAGE VIEWER MODAL (ZOOM & DRAG)
+  // IMAGE VIEWER MODAL (ZOOM & DRAG)
   // ==========================================
   const imageModal = document.getElementById('image-modal');
   const modalImg = document.getElementById('modal-img');
@@ -122,14 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTransform();
   }
 
-  // Mở modal khi bấm vào ảnh xem trước server
-  serverPreviewImg.addEventListener('click', () => {
-    modalImg.src = serverPreviewImg.src;
-    imageModal.classList.remove('hidden');
-    resetZoom();
-  });
+  if (serverPreviewImg) {
+    serverPreviewImg.addEventListener('click', () => {
+      modalImg.src = serverPreviewImg.src;
+      imageModal.classList.remove('hidden');
+      resetZoom();
+    });
+  }
 
-  // Đóng modal
   modalCloseBtn.addEventListener('click', () => {
     imageModal.classList.add('hidden');
   });
@@ -138,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     imageModal.classList.add('hidden');
   });
 
-  // Nút Zoom
   zoomInBtn.addEventListener('click', () => {
     scale += 0.25;
     updateTransform();
@@ -151,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   zoomResetBtn.addEventListener('click', resetZoom);
 
-  // Kéo di chuyển ảnh (Chuột & Cảm ứng tay)
   modalBody.addEventListener('mousedown', (e) => {
     e.preventDefault();
     startX = e.clientX - pointX;
@@ -170,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     isDragging = false;
   });
 
-  // Hỗ trợ Touch cho điện thoại
   modalBody.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) {
       startX = e.touches[0].clientX - pointX;
@@ -190,39 +176,3 @@ document.addEventListener('DOMContentLoaded', () => {
     isDragging = false;
   });
 });
-// ===== XỬ LÝ PHÁT NHẠC NỀN TỰ ĐỘNG =====
-const bgMusic = document.getElementById('bg-music');
-const musicBtn = document.getElementById('music-toggle-btn');
-
-if (bgMusic && musicBtn) {
-  const startAudio = () => {
-    bgMusic.play().then(() => {
-      musicBtn.classList.remove('paused');
-    }).catch(err => {
-      console.log("Autoplay blocked, waiting for user click.");
-    });
-  };
-
-  window.addEventListener('DOMContentLoaded', startAudio);
-
-  const handleFirstInteraction = () => {
-    startAudio();
-    document.removeEventListener('click', handleFirstInteraction);
-    document.removeEventListener('touchstart', handleFirstInteraction);
-  };
-
-  document.addEventListener('click', handleFirstInteraction);
-  document.addEventListener('touchstart', handleFirstInteraction);
-
-  musicBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (bgMusic.paused) {
-      bgMusic.play();
-      musicBtn.classList.remove('paused');
-    } else {
-      bgMusic.pause();
-      musicBtn.classList.add('paused');
-    }
-  });
-}
-
