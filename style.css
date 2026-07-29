@@ -6,7 +6,6 @@
 }
 
 body {
-  /* Tên file ảnh/gif nền chuẩn: bg.jpg (hoặc bg.gif nếu dùng ảnh động) */
   background: url('bg.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
@@ -17,7 +16,6 @@ body {
   position: relative;
 }
 
-/* Lớp phủ tối mờ nền */
 body::before {
   content: '';
   position: fixed;
@@ -37,12 +35,6 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  transition: all 0.3s ease;
-}
-
-/* Khung rộng hơn cho Trang Server */
-.server-container {
-  max-width: 780px !important;
 }
 
 .hidden {
@@ -152,21 +144,28 @@ body::before {
 .divider {
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  line-height: 0.1em;
-  margin: 10px 0;
+  border-bottom: none;
+  margin: 10px 0 5px 0;
 }
 
 .divider span {
   background: transparent;
-  padding-right: 10px;
+  padding: 0;
   font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: #cbd5e1;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Links Cards */
+.divider span i {
+  font-size: 0.75rem;
+  color: #ff758c;
+}
+
+/* Links List & Cards */
 .links-list {
   width: 100%;
   display: flex;
@@ -218,25 +217,76 @@ body::before {
   color: #94a3b8;
 }
 
-/* Donate Section */
-.donate-card {
+/* Khung xổ xuống chung (Expand Cards) */
+.expand-card {
   width: 100%;
   background: rgba(15, 15, 25, 0.9);
   border: 1px solid rgba(255, 77, 109, 0.4);
   border-radius: 16px;
   padding: 16px;
-  text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   animation: fadeIn 0.3s ease;
 }
 
-.donate-card h3 {
+/* Server Box */
+.server-preview-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.zoom-hint {
+  font-size: 0.75rem;
+  color: #ff758c;
+  margin-bottom: 2px;
+}
+
+.clickable-img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s;
+}
+
+.clickable-img:hover {
+  transform: scale(1.02);
+}
+
+.server-join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgba(20, 20, 30, 0.85);
+  border: 2px solid #ff4d6d;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.server-join-btn:hover {
+  background: #ff4d6d;
+}
+
+/* Donate Box */
+.donate-box {
+  text-align: center;
+}
+
+.donate-box h3 {
   font-size: 1rem;
   color: #ff4d6d;
   margin-bottom: 4px;
 }
 
-.donate-card p {
+.donate-box p {
   font-size: 0.8rem;
   color: #cbd5e1;
   margin-bottom: 10px;
@@ -246,6 +296,43 @@ body::before {
   width: 100%;
   max-width: 280px;
   border-radius: 12px;
+}
+
+/* Dịch vụ Mua hộ Box */
+.service-box {
+  text-align: left;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.service-list li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-list li i {
+  color: #22c55e;
+  font-size: 0.8rem;
+}
+
+.service-note {
+  background: rgba(255, 77, 109, 0.12);
+  border-left: 3px solid #ff4d6d;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #f1f5f9;
 }
 
 /* SPOTIFY CARD */
@@ -303,7 +390,6 @@ body::before {
   color: #b3b3b3;
 }
 
-/* Progress Bar */
 .progress-container {
   display: flex;
   align-items: center;
@@ -319,7 +405,6 @@ body::before {
   cursor: pointer;
 }
 
-/* Player Controls */
 .player-controls {
   display: flex;
   align-items: center;
@@ -361,76 +446,89 @@ body::before {
   background: #1ed760 !important;
 }
 
-/* TRANG SERVER DISCORD (ẢNH TO & NÚT DÀI) */
-.btn-back {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-weight: 600;
-  color: #ffffff;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.btn-back:hover {
-  background: #ff4d6d;
-}
-
-.server-preview-card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-/* Ảnh xem trước Server Phóng To Rộng Ra */
-.server-banner-img {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-  object-fit: contain;
-}
-
-/* Nút Bấm Kéo Dài Nằm Ngang Rộng Full Khung */
-.server-join-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: rgba(20, 20, 30, 0.85);
-  border: 2px solid #ff4d6d;
-  color: #ffffff;
-  text-align: center;
-  padding: 16px 24px;
-  border-radius: 16px;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(255, 77, 109, 0.3);
-  transition: all 0.2s ease;
-}
-
-.server-join-btn:hover {
-  background: #ff4d6d;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(255, 77, 109, 0.5);
-}
-
 .footer {
   margin-top: 10px;
   font-size: 0.75rem;
   color: #cbd5e1;
+}
+
+/* MODAL XEM ẢNH FULL SCREEN */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.modal-toolbar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10001;
+  display: flex;
+  gap: 10px;
+}
+
+.modal-toolbar button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s;
+}
+
+.modal-toolbar button:hover {
+  background: #ff4d6d;
+  transform: scale(1.08);
+}
+
+.modal-body {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+}
+
+.modal-body:active {
+  cursor: grabbing;
+}
+
+#modal-img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.1s ease-out;
+  user-select: none;
 }
 
 @keyframes fadeIn {
