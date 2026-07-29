@@ -3,109 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bio Link - Dark Aesthetic</title>
+  <title>Bio Link - Nagikaze</title>
   <link rel="stylesheet" href="style.css" />
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Background Music -->
+  <!-- Audio Player -->
   <audio id="bg-music" loop>
+    <!-- Thay link mp3 trực tiếp bài MAITE của bạn vào đây nếu có -->
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
   </audio>
 
-  <div class="container">
+  <!-- TRANG CHÍNH (MAIN PAGE) -->
+  <div id="main-page" class="container">
     <!-- Banner Header -->
     <div class="banner">
-      <img src="https://picsum.photos/800/300?random=1" alt="Banner" />
+      <img src="1000092802.jpg" alt="Banner" />
     </div>
 
     <!-- Profile Info -->
     <div class="profile-header">
       <div class="avatar-container">
-        <img src="https://picsum.photos/150?random=2" alt="Avatar" class="avatar" />
+        <img src="1000092802.jpg" alt="Avatar" class="avatar" />
         <span class="status-dot"></span>
       </div>
-      <h1 class="username">YOUR NAME</h1>
-      <p class="tagline">@username • Custom Title</p>
-      <p class="bio-text">Welcome to my personal page! DM for collabs.</p>
+      <h1 class="username">Nagikaze</h1>
+      <p class="tagline">@nagikaze • Một thk nghèo vcl</p>
+      <p class="bio-text">Chào mừng đến với trang cá nhân của tôi! Nhắn tin để hợp tác.</p>
 
       <!-- Social Icons -->
       <div class="social-icons">
-        <a href="#"><i class="fa-brands fa-discord"></i></a>
-        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-paypal"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="https://discord.gg/2P2qMRatau" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://www.tiktok.com/@phngdz210?_r=1&_t=ZS-98QswCb7Aie" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/share/1DNHsnDbUx/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
       </div>
     </div>
 
+    <!-- Phần chữ LINKS -->
     <div class="divider"><span>LINKS</span></div>
 
     <!-- Links List -->
     <div class="links-list">
-      <a href="https://github.com" target="_blank" class="link-card">
-        <div class="link-icon"><i class="fa-brands fa-github"></i></div>
-        <div class="link-info">
-          <h3>Free Model Collection • GitHub</h3>
-          <p>github.com/your-repo</p>
-        </div>
-      </a>
-
-      <a href="https://twitter.com" target="_blank" class="link-card">
-        <div class="link-icon"><i class="fa-brands fa-x-twitter"></i></div>
-        <div class="link-info">
-          <h3>Twitter / X Profile</h3>
-          <p>x.com/your-handle</p>
-        </div>
-      </a>
-
-      <a href="https://discord.com" target="_blank" class="link-card">
+      <!-- Link 1: Mở trang giới thiệu Server -->
+      <div class="link-card" id="btn-open-server">
         <div class="link-icon"><i class="fa-brands fa-discord"></i></div>
         <div class="link-info">
-          <h3>Official Community • Discord</h3>
-          <p>discord.gg/your-server</p>
+          <h3>MY SERVER • DISCORD</h3>
+          <p>discord.gg/2P2qMRatau</p>
         </div>
-      </a>
+      </div>
 
-      <a href="https://ko-fi.com" target="_blank" class="link-card">
-        <div class="link-icon"><i class="fa-solid fa-mug-hot"></i></div>
+      <!-- Link 2: DONATE ME AT HERE -->
+      <div class="link-card" id="btn-open-donate">
+        <div class="link-icon"><i class="fa-solid fa-qrcode"></i></div>
         <div class="link-info">
-          <h3>Buy me a coffee</h3>
-          <p>ko-fi.com/your-name</p>
+          <h3>DONATE ME AT HERE</h3>
+          <p>Ủng hộ mình qua mã QR ngân hàng</p>
         </div>
-      </a>
+      </div>
     </div>
 
-    <!-- TikTok Card Widget -->
-    <div class="tiktok-card">
-      <div class="tiktok-header">
-        <i class="fa-brands fa-tiktok"></i> TIKTOK
+    <!-- Khung QR Donate (Mặc định ẩn) -->
+    <div id="donate-section" class="donate-card hidden">
+      <h3>Cảm ơn bạn đã ủng hộ! ❤️</h3>
+      <p>Mã QR Ngân Hàng BIDV</p>
+      <img src="BIDV_1784100251131.jpg" alt="QR BIDV" class="qr-image" />
+    </div>
+
+    <!-- KHUNG SPOTIFY PLAYER - MY FAVORITE MUSIC -->
+    <div class="spotify-card">
+      <div class="spotify-header">
+        <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
       </div>
-      <div class="tiktok-body">
-        <img src="https://picsum.photos/150?random=2" class="tiktok-avatar" alt="TikTok Avatar" />
-        <div class="tiktok-info">
-          <h4>Your Name</h4>
-          <p>@username</p>
-          <div class="tiktok-stats">
-            <span><strong>100K</strong> Followers</span>
-            <span><strong>1.5M</strong> Likes</span>
+      <div class="spotify-body">
+        <!-- Thumbnail Avatar Bài hát -->
+        <img src="https://i.ytimg.com/vi/ToYMt2mDer4/hqdefault.jpg" alt="Song Avatar" class="song-avatar" />
+        
+        <div class="song-details">
+          <div class="song-info">
+            <h4 class="song-title">MAITE</h4>
+            <p class="song-artist">Lancelot</p>
+          </div>
+          
+          <!-- Thanh thời gian tiến trình -->
+          <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="seek-bar" value="0" max="100" />
+            <span id="duration-time">0:00</span>
+          </div>
+
+          <!-- Bộ nút điều khiển -->
+          <div class="player-controls">
+            <button id="btn-rewind" title="Tua lùi 10s">
+              <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
+            </button>
+            <button id="btn-play-pause" class="play-btn" title="Phát/Tắt">
+              <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button id="btn-forward" title="Tua nhanh 10s">
+              <span>10s</span> <i class="fa-solid fa-rotate-right"></i>
+            </button>
           </div>
         </div>
       </div>
-      <a href="https://tiktok.com" target="_blank" class="btn-follow">Follow on TikTok</a>
     </div>
 
     <footer class="footer">
-      Powered by <strong>YourName</strong>
+      Powered by <strong>Nagikaze</strong>
     </footer>
   </div>
 
-  <!-- Fixed Music Toggle Button -->
-  <button id="music-btn" class="music-toggle" title="Toggle Music">
-    <i class="fa-solid fa-volume-xmark" id="music-icon"></i>
-  </button>
+  <!-- TRANG GIỚI THIỆU SERVER DISCORD -->
+  <div id="server-page" class="container hidden">
+    <button id="btn-back" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Về Trang Chủ
+    </button>
+
+    <div class="server-preview-card">
+      <img src="anh server.png" alt="Server Discord Preview" class="server-banner-img" />
+      
+      <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
+        Thấy hứng thú đúng không! Bấm vô dòng này để vô server nhé!
+      </a>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
