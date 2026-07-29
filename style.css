@@ -6,8 +6,8 @@
 }
 
 body {
-  /* Đặt ảnh background pixel art mới */
-  background: url('c1fc9d7f6ae08d56f2b84e81799790a5.jpg') no-repeat center center fixed;
+  /* Tên file ảnh/gif nền chuẩn: bg.jpg (hoặc bg.gif nếu dùng ảnh động) */
+  background: url('bg.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #ffffff;
   min-height: 100vh;
@@ -17,7 +17,7 @@ body {
   position: relative;
 }
 
-/* Lớp phủ làm tối giúp nổi bật giao diện bio */
+/* Lớp phủ tối mờ nền */
 body::before {
   content: '';
   position: fixed;
@@ -25,7 +25,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 15, 0.75);
+  background: rgba(10, 10, 15, 0.78);
   backdrop-filter: blur(4px);
   z-index: -1;
 }
@@ -37,6 +37,12 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Khung rộng hơn cho Trang Server */
+.server-container {
+  max-width: 780px !important;
 }
 
 .hidden {
@@ -355,12 +361,12 @@ body::before {
   background: #1ed760 !important;
 }
 
-/* Trang Server */
+/* TRANG SERVER DISCORD (ẢNH TO & NÚT DÀI) */
 .btn-back {
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 20px;
   font-weight: 600;
   color: #ffffff;
@@ -370,6 +376,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-bottom: 8px;
 }
 
 .btn-back:hover {
@@ -380,35 +387,44 @@ body::before {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
 }
 
+/* Ảnh xem trước Server Phóng To Rộng Ra */
 .server-banner-img {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  max-width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  object-fit: contain;
 }
 
+/* Nút Bấm Kéo Dài Nằm Ngang Rộng Full Khung */
 .server-join-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  background: rgba(20, 20, 30, 0.8);
+  background: rgba(20, 20, 30, 0.85);
   border: 2px solid #ff4d6d;
   color: #ffffff;
   text-align: center;
-  padding: 14px 16px;
-  border-radius: 14px;
+  padding: 16px 24px;
+  border-radius: 16px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
-  backdrop-filter: blur(10px);
-  transition: all 0.2s;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(255, 77, 109, 0.3);
+  transition: all 0.2s ease;
 }
 
 .server-join-btn:hover {
   background: #ff4d6d;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 77, 109, 0.5);
 }
 
 .footer {
