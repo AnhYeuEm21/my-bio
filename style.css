@@ -41,7 +41,7 @@ body::before {
   display: none !important;
 }
 
-/* Kiểu chữ thống nhất cho cả phần ảnh và phần video */
+/* Kiểu chữ thống nhất */
 .section-desc {
   width: 100%;
   text-align: left;
@@ -241,7 +241,6 @@ body::before {
   animation: fadeIn 0.3s ease;
 }
 
-/* Server Box */
 .server-preview-box {
   display: flex;
   flex-direction: column;
@@ -288,18 +287,6 @@ body::before {
   background: #ff4d6d;
 }
 
-/* Video Section */
-.video-desc {
-  width: 100%;
-  text-align: left;
-  margin-top: 6px;
-  font-size: 0.82rem;
-  color: #cbd5e1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .video-container {
   width: 100%;
   border-radius: 12px;
@@ -314,7 +301,6 @@ body::before {
   border-radius: 12px;
 }
 
-/* Mua hộ đồ Section */
 .service-box {
   text-align: left;
 }
@@ -360,7 +346,6 @@ body::before {
   font-weight: 600;
 }
 
-/* Donate Box */
 .donate-box {
   text-align: center;
 }
@@ -383,7 +368,7 @@ body::before {
   border-radius: 12px;
 }
 
-/* SPOTIFY CARD */
+/* SPOTIFY CARD ĐÃ ĐỔI GIAO DIỆN CHỮ CHẠY */
 .spotify-card {
   width: 100%;
   background: rgba(18, 18, 18, 0.85);
@@ -397,7 +382,7 @@ body::before {
 .spotify-header {
   font-size: 0.75rem;
   letter-spacing: 1.5px;
-  color: #1db954;
+  color: #4ade80;
   font-weight: 700;
   margin-bottom: 12px;
   display: flex;
@@ -412,8 +397,8 @@ body::before {
 }
 
 .song-avatar {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
@@ -424,7 +409,8 @@ body::before {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  overflow: hidden;
 }
 
 .song-title {
@@ -438,60 +424,49 @@ body::before {
   color: #b3b3b3;
 }
 
-.progress-container {
+/* TRẠNG THÁI ĐANG PHÁT NHẠC (STATUS & MARQUEE) */
+.playing-status {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.7rem;
-  color: #b3b3b3;
-}
-
-.progress-container input[type="range"] {
-  flex-grow: 1;
-  height: 4px;
-  accent-color: #1db954;
-  cursor: pointer;
-}
-
-.player-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4ade80; /* Màu xanh khi phát nhạc */
   margin-top: 4px;
+  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-.player-controls button {
-  background: transparent;
-  border: none;
-  color: #b3b3b3;
-  cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s;
+.playing-status i {
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
-.player-controls button:hover {
-  color: #ffffff;
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
 }
 
-.play-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50% !important;
-  background: #1db954 !important;
-  color: #000000 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem !important;
+.status-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marqueeText 12s linear infinite;
 }
 
-.play-btn:hover {
-  transform: scale(1.08);
-  background: #1ed760 !important;
+/* KHI NẠC TẮT/TẠM DỪNG -> CHUYỂN SANG MÀU ĐEN TỐI VÀ ĐỨNG IM */
+.playing-status.paused {
+  color: #4b5563; /* Màu xám đen khi đứng im */
+}
+
+.playing-status.paused .status-text {
+  animation: none;
+  padding-left: 0;
+}
+
+@keyframes marqueeText {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
 }
 
 .footer {
@@ -578,51 +553,8 @@ body::before {
   transition: transform 0.1s ease-out;
   user-select: none;
 }
-/* Khung chứa tổng thể (giống thiết kế bo góc của web bạn) */
-.favorite-container {
-  background: rgba(255, 255, 255, 0.05); /* Mền tối mờ */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 16px;
-  backdrop-filter: blur(10px);
-}
 
-/* Các thẻ con chứa từng item */
-.favorite-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.card-thumb {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.card-title {
-  color: #ffffff;
-  font-weight: bold;
-  margin: 0;
-  font-size: 1rem;
-}
-
-.card-sub {
-  color: #a0a0a0;
-  font-size: 0.85rem;
-  margin: 4px 0 0 0;
-}
-
-.sub-header {
-  color: #4ade80; /* Màu xanh lá tươi chuẩn Spotify / Favorite */
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin: 16px 0 12px 0;
-  text-transform: uppercase;
-}
-/* Nút điều khiển nhạc góc dưới */
+/* NÚT PHÁT NHẠC ĐĨA TRÒN GÓC DƯỚI */
 .music-btn {
   position: fixed;
   bottom: 20px;
@@ -630,10 +562,10 @@ body::before {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #4ade80;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   cursor: pointer;
   z-index: 999;
   backdrop-filter: blur(8px);
@@ -645,15 +577,11 @@ body::before {
 
 .music-btn:hover {
   transform: scale(1.1);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .music-btn.paused {
-  color: #a1a1aa;
-}
-
-.music-btn.paused i {
-  animation: none !important;
+  color: #4b5563;
 }
 
 @keyframes fadeIn {
