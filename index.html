@@ -31,6 +31,7 @@
     <div class="profile-header">
       <div class="avatar-container">
         <img src="avatar.jpg" alt="Avatar" class="avatar" />
+        <span class="status-dot"></span>
       </div>
       <h1 class="username">Nagikaze</h1>
       <p class="tagline">@nagikaze - Một thk nghèo vcl</p>
@@ -38,10 +39,7 @@
 
       <!-- Social Icons -->
       <div class="social-icons">
-        <!-- Nút Discord bấm vào sẽ mở bảng hướng dẫn kết bạn -->
-        <button id="btn-social-discord" class="social-btn" title="Hướng dẫn kết bạn Discord">
-          <i class="fa-brands fa-discord"></i>
-        </button>
+        <a href="https://discord.gg/2P2qMRatau" target="_blank" title="Discord"><i class="fa-brands fa-discord"></i></a>
         <a href="https://www.tiktok.com/@phngdz210?_r=1&_t=ZS-98QswCb7Aie" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         <a href="https://www.facebook.com/share/1DNHsnDbUx/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
       </div>
@@ -62,53 +60,26 @@
         </div>
       </div>
 
-      <!-- Khung xổ xuống Hướng dẫn Kết bạn & Server Discord -->
+      <!-- Khung xổ xuống Server Discord -->
       <div id="server-section" class="expand-card hidden">
         <div class="server-preview-box">
-          <!-- Thông báo nhảy từ trên xuống -->
-          <div class="toast-notification">
-            <i class="fa-solid fa-bell"></i> Hướng dẫn kết bạn Discord
-          </div>
+          <p class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Bấm vào ảnh để phóng to & di chuyển</p>
 
-          <!-- Dòng 1: Username màu đỏ -->
           <div class="section-desc">
-            <p>• <span class="text-red">Username của toi là nagikaze</span>, search trên phần tìm bạn</p>
+            <p>• Ảnh toi làm bằng Gemini, ae xem đc thì xem :))))</p>
           </div>
-
-          <!-- Hàng chứa 2 ảnh đầu tiên nằm cạnh nhau -->
-          <div class="image-row">
-            <img src="kb1.jpg" alt="Search Username" class="clickable-img row-img" />
-            <img src="kb2.jpg" alt="Friend Request Sent" class="clickable-img row-img" />
-          </div>
-
-          <!-- Dòng 2: Accept friend -->
+          <img src="server.png" alt="Server Discord Preview" id="server-preview-img" class="clickable-img" />
+          
           <div class="section-desc">
-            <p>• Toi sẽ accept friend tại đây</p>
-          </div>
-
-          <!-- Ảnh thứ 3 nằm bên dưới -->
-          <img src="kb3.jpg" alt="Accept Friend Profile" class="clickable-img full-img" id="server-preview-img" />
-
-          <!-- Dòng lưu ý đỏ/đậm -->
-          <div class="service-note margin-top-10">
-            <strong>Lưu ý 🛑: Nếu ae có nhu cầu mua thì ms kb, nếu muốn tìm người chs game cùng thì vô server toi sẽ hợp lý hơn:)))))</strong>
-          </div>
-
-          <!-- Dòng chữ trước video -->
-          <div class="section-desc">
-            <p>• Nếu bạn thích kiếm người chs game cùng, server toi có đầy</p>
             <p>• Video toi quay làm ví dụ thôi, ae đừng chê 🥺</p>
           </div>
 
-          <!-- Video ví dụ -->
           <div class="video-container">
             <video controls controlsList="nodownload" poster="thumib.png">
               <source src="video.mp4" type="video/mp4" />
               Trình duyệt của bạn không hỗ trợ thẻ video.
             </video>
           </div>
-
-          <!-- Nút bấm gia nhập -->
           <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
             Bấm vô dòng này để vô server nhé!
           </a>
@@ -179,7 +150,7 @@
     </div>
 
     <div class="links-list">
-      <!-- KHUNG SPOTIFY PLAYER -->
+      <!-- KHUNG SPOTIFY PLAYER ĐÃ TỐI ƯU -->
       <div class="spotify-card">
         <div class="spotify-header">
           <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
@@ -193,6 +164,7 @@
               <p class="song-artist">Tokyo Music Walker</p>
             </div>
             
+            <!-- Dòng chữ Đang phát nhạc chuyển động -->
             <div id="now-playing-status" class="playing-status paused">
               <i class="fa-solid fa-music"></i>
               <div class="marquee-wrapper">
@@ -226,3 +198,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
