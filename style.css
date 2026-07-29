@@ -217,7 +217,7 @@ body::before {
   color: #94a3b8;
 }
 
-/* Khung xổ xuống chung (Expand Cards) */
+/* Khung xổ xuống */
 .expand-card {
   width: 100%;
   background: rgba(15, 15, 25, 0.9);
@@ -275,6 +275,78 @@ body::before {
   background: #ff4d6d;
 }
 
+/* Video Section */
+.video-desc {
+  width: 100%;
+  text-align: left;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Mua hộ đồ Section */
+.service-box {
+  text-align: left;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.service-list li {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.service-list li i {
+  color: #22c55e;
+  font-size: 0.85rem;
+  margin-top: 3px;
+}
+
+.service-note {
+  background: rgba(255, 77, 109, 0.12);
+  border-left: 3px solid #ff4d6d;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #f1f5f9;
+}
+
+.service-contact-text {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: #ff758c;
+  font-style: italic;
+  font-weight: 600;
+}
+
 /* Donate Box */
 .donate-box {
   text-align: center;
@@ -296,43 +368,6 @@ body::before {
   width: 100%;
   max-width: 280px;
   border-radius: 12px;
-}
-
-/* Dịch vụ Mua hộ Box */
-.service-box {
-  text-align: left;
-}
-
-.service-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.service-list li {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.service-list li i {
-  color: #22c55e;
-  font-size: 0.8rem;
-}
-
-.service-note {
-  background: rgba(255, 77, 109, 0.12);
-  border-left: 3px solid #ff4d6d;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  color: #f1f5f9;
 }
 
 /* SPOTIFY CARD */
@@ -534,4 +569,4 @@ body::before {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
-}
+  }
