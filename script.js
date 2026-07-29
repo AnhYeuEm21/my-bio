@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const playingStatus = document.getElementById('now-playing-status');
   
   // Nút mở các section xổ xuống
+  const btnSocialDiscord = document.getElementById('btn-social-discord');
   const btnToggleServer = document.getElementById('btn-toggle-server');
   const serverSection = document.getElementById('server-section');
   
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnToggleService = document.getElementById('btn-toggle-service');
   const serviceSection = document.getElementById('service-section');
 
-  // Xử lý bật / tắt nhạc đồng bộ
+  // Bật/tắt nhạc
   function setMusicState(playing) {
     if (playing) {
       musicBtn.classList.remove('paused');
@@ -30,12 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     music.play().then(() => {
       setMusicState(true);
     }).catch(err => {
-      console.log("Autoplay bị chặn, chờ tương tác người dùng.");
+      console.log("Autoplay bị chặn, chờ tương tác.");
       setMusicState(false);
     });
   }
 
-  // Tự động phát khi chạm bất kỳ đâu lần đầu
   const handleFirstInteraction = () => {
     playMusic();
     document.removeEventListener('click', handleFirstInteraction);
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', handleFirstInteraction);
   document.addEventListener('touchstart', handleFirstInteraction);
 
-  // Click nút tròn đĩa nhạc ở góc dưới
   musicBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     if (music.paused) {
@@ -56,7 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Toggle ẩn/hiện Server Section (Mượt mà)
+  // Bấm icon Discord ở phần Social MXH để mở/đóng hướng dẫn
+  if (btnSocialDiscord) {
+    btnSocialDiscord.addEventListener('click', () => {
+      serverSection.classList.toggle('hidden');
+      if (!serverSection.classList.contains('hidden')) {
+        setTimeout(() => {
+          serverSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 150);
+      }
+    });
+  }
+
+  // Toggle ẩn/hiện Server Section từ thẻ Link bên dưới
   btnToggleServer.addEventListener('click', () => {
     serverSection.classList.toggle('hidden');
     if (!serverSection.classList.contains('hidden')) {
@@ -66,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Toggle ẩn/hiện Donate Section (Mượt mà)
+  // Toggle ẩn/hiện Donate Section
   btnOpenDonate.addEventListener('click', () => {
     donateSection.classList.toggle('hidden');
     if (!donateSection.classList.contains('hidden')) {
@@ -76,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Toggle ẩn/hiện Dịch vụ Mua hộ Section (Mượt mà)
+  // Toggle ẩn/hiện Dịch vụ Mua hộ Section
   btnToggleService.addEventListener('click', () => {
     serviceSection.classList.toggle('hidden');
     if (!serviceSection.classList.contains('hidden')) {
@@ -87,13 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // IMAGE VIEWER MODAL (ZOOM & DRAG)
+  // IMAGE VIEWER MODAL (ZOOM & DRAG CHUNG CHO CẢ 3 ẢNH)
   // ==========================================
   const imageModal = document.getElementById('image-modal');
   const modalImg = document.getElementById('modal-img');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalBody = document.getElementById('modal-body');
-  const serverPreviewImg = document.getElementById('server-preview-img');
 
   const zoomInBtn = document.getElementById('zoom-in-btn');
   const zoomOutBtn = document.getElementById('zoom-out-btn');
@@ -117,13 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTransform();
   }
 
-  if (serverPreviewImg) {
-    serverPreviewImg.addEventListener('click', () => {
-      modalImg.src = serverPreviewImg.src;
+  // Bấm vào bất kỳ ảnh nào có class .clickable-img để xem phóng to
+  document.querySelectorAll('.clickable-img').forEach(img => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.src;
       imageModal.classList.remove('hidden');
       resetZoom();
     });
-  }
+  });
 
   modalCloseBtn.addEventListener('click', () => {
     imageModal.classList.add('hidden');
