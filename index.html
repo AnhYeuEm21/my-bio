@@ -12,7 +12,7 @@
 
   <!-- Audio Player -->
   <audio id="bg-music" loop>
-    <source src="music1.mp3" type="audio/mpeg" />
+    <source src="music.mp3" type="audio/mpeg" />
   </audio>
   <!-- CHÈN ĐOẠN NÀY VÀO DÒNG 17 -->
   <button id="music-toggle-btn" class="music-btn" title="Bật/Tắt nhạc">
@@ -163,6 +163,24 @@
           <div class="song-info">
             <h4 class="song-title">MAITE</h4>
             <p class="song-artist">Lancelot</p>
+          </div>
+          
+          <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="seek-bar" value="0" max="100" />
+            <span id="duration-time">0:00</span>
+          </div>
+
+          <div class="player-controls">
+            <button id="btn-rewind" title="Tua lùi 10s">
+              <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
+            </button>
+            <button id="btn-play-pause" class="play-btn" title="Phát/Tắt">
+              <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button id="btn-forward" title="Tua nhanh 10s">
+              <span>10s</span> <i class="fa-solid fa-rotate-right"></i>
+            </button>
           </div>
         </div>
       </div>
