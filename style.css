@@ -6,13 +6,28 @@
 }
 
 body {
-  /* Tông màu nền đốm tím tối đậm giống giao diện trong ảnh */
-  background: radial-gradient(circle at top, #1a0f2e 0%, #090514 100%);
-  color: #e2e8f0;
+  /* Đặt ảnh background pixel art mới */
+  background: url('c1fc9d7f6ae08d56f2b84e81799790a5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 20px 10px;
+  position: relative;
+}
+
+/* Lớp phủ làm tối giúp nổi bật giao diện bio */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 15, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: -1;
 }
 
 .container {
@@ -24,13 +39,18 @@ body {
   gap: 16px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Banner & Avatar */
 .banner {
   width: 100%;
   height: 140px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .banner img {
@@ -58,8 +78,8 @@ body {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #8b5cf6;
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  border: 3px solid #ff4d6d;
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
 }
 
 .status-dot {
@@ -70,7 +90,7 @@ body {
   position: absolute;
   bottom: 4px;
   right: 4px;
-  border: 2px solid #090514;
+  border: 2px solid #0a0a0f;
 }
 
 .username {
@@ -78,18 +98,19 @@ body {
   letter-spacing: 2px;
   margin-top: 10px;
   font-weight: 700;
-  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .tagline {
   font-size: 0.85rem;
-  color: #a78bfa;
+  color: #ff758c;
+  font-weight: 600;
   margin-bottom: 6px;
 }
 
 .bio-text {
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: #e2e8f0;
   max-width: 320px;
 }
 
@@ -101,8 +122,8 @@ body {
 }
 
 .social-icons a {
-  color: #cbd5e1;
-  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -111,32 +132,32 @@ body {
   justify-content: center;
   font-size: 1.1rem;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 0.2s ease;
 }
 
 .social-icons a:hover {
-  background: rgba(139, 92, 246, 0.2);
-  color: #fff;
-  border-color: #8b5cf6;
+  background: #ff4d6d;
+  border-color: #ff4d6d;
+  transform: translateY(-2px);
 }
 
-/* Divider */
+/* Divider LINKS */
 .divider {
   width: 100%;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   line-height: 0.1em;
   margin: 10px 0;
 }
 
 .divider span {
-  background: #090514;
+  background: transparent;
   padding-right: 10px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 1.5px;
-  color: #64748b;
-  font-weight: 600;
+  color: #cbd5e1;
+  font-weight: 700;
 }
 
 /* Links Cards */
@@ -151,26 +172,28 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   padding: 12px 16px;
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
+  cursor: pointer;
   transition: all 0.2s ease;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
 }
 
 .link-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 77, 109, 0.25);
   transform: translateY(-2px);
-  border-color: rgba(139, 92, 246, 0.4);
+  border-color: #ff4d6d;
 }
 
 .link-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 77, 109, 0.2);
+  color: #ff4d6d;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -181,115 +204,220 @@ body {
 
 .link-info h3 {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .link-info p {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #94a3b8;
 }
 
-/* TikTok Card */
-.tiktok-card {
+/* Donate Section */
+.donate-card {
   width: 100%;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(15, 15, 25, 0.9);
+  border: 1px solid rgba(255, 77, 109, 0.4);
   border-radius: 16px;
   padding: 16px;
-  margin-top: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  animation: fadeIn 0.3s ease;
 }
 
-.tiktok-header {
+.donate-card h3 {
+  font-size: 1rem;
+  color: #ff4d6d;
+  margin-bottom: 4px;
+}
+
+.donate-card p {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+}
+
+/* SPOTIFY CARD */
+.spotify-card {
+  width: 100%;
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.spotify-header {
   font-size: 0.75rem;
   letter-spacing: 1.5px;
-  color: #94a3b8;
+  color: #1db954;
+  font-weight: 700;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spotify-body {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.song-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.song-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.song-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.song-artist {
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  color: #b3b3b3;
+}
+
+.progress-container input[type="range"] {
+  flex-grow: 1;
+  height: 4px;
+  accent-color: #1db954;
+  cursor: pointer;
+}
+
+/* Player Controls */
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.player-controls button {
+  background: transparent;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.player-controls button:hover {
+  color: #ffffff;
+}
+
+.play-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50% !important;
+  background: #1db954 !important;
+  color: #000000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem !important;
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+  background: #1ed760 !important;
+}
+
+/* Trang Server */
+.btn-back {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.tiktok-body {
+.btn-back:hover {
+  background: #ff4d6d;
+}
+
+.server-preview-card {
+  width: 100%;
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.tiktok-avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.tiktok-info h4 {
-  font-size: 1rem;
-}
-
-.tiktok-info p {
-  font-size: 0.8rem;
-  color: #64748b;
-}
-
-.tiktok-stats {
-  display: flex;
+  flex-direction: column;
   gap: 16px;
-  font-size: 0.75rem;
-  margin-top: 4px;
-  color: #94a3b8;
+  align-items: center;
 }
 
-.tiktok-stats strong {
-  color: #fff;
+.server-banner-img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
 }
 
-.btn-follow {
+.server-join-btn {
   display: block;
   width: 100%;
-  padding: 10px;
-  background: #ffffff;
-  color: #000;
+  background: rgba(20, 20, 30, 0.8);
+  border: 2px solid #ff4d6d;
+  color: #ffffff;
   text-align: center;
-  font-weight: 600;
-  font-size: 0.85rem;
-  border-radius: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.btn-follow:hover {
-  opacity: 0.9;
-}
-
-/* Footer */
-.footer {
-  margin-top: 10px;
-  font-size: 0.75rem;
-  color: #475569;
-}
-
-/* Music Control Button */
-.music-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(20, 10, 35, 0.8);
-  border: 1px solid rgba(139, 92, 246, 0.5);
-  color: #a78bfa;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   transition: all 0.2s;
 }
 
-.music-toggle:hover {
-  transform: scale(1.08);
+.server-join-btn:hover {
+  background: #ff4d6d;
+  transform: scale(1.02);
+}
+
+.footer {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
