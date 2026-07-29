@@ -141,6 +141,47 @@
           <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
         </div>
       </div>
+      <!-- Phần chữ LINKS -->
+    <div class="divider">
+      <span>FAVORITE <i class="fa-solid fa-chevron-down"></i></span>
+    </div>
+
+    <!-- Links List -->
+    <div class="links-list">
+    <!-- KHUNG SPOTIFY PLAYER -->
+    <div class="spotify-card">
+      <div class="spotify-header">
+        <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
+      </div>
+      <div class="spotify-body">
+        <img src="https://i.ytimg.com/vi/ToYMt2mDer4/hqdefault.jpg" alt="Song Avatar" class="song-avatar" />
+        
+        <div class="song-details">
+          <div class="song-info">
+            <h4 class="song-title">MAITE</h4>
+            <p class="song-artist">Lancelot</p>
+          </div>
+          
+          <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="seek-bar" value="0" max="100" />
+            <span id="duration-time">0:00</span>
+          </div>
+
+          <div class="player-controls">
+            <button id="btn-rewind" title="Tua lùi 10s">
+              <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
+            </button>
+            <button id="btn-play-pause" class="play-btn" title="Phát/Tắt">
+              <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button id="btn-forward" title="Tua nhanh 10s">
+              <span>10s</span> <i class="fa-solid fa-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     
     <footer class="footer">
       Powered by <strong>Nagikaze</strong>
