@@ -41,7 +41,6 @@ body::before {
   display: none !important;
 }
 
-/* Kiểu chữ thống nhất */
 .section-desc {
   width: 100%;
   text-align: left;
@@ -54,7 +53,6 @@ body::before {
   margin-bottom: 2px;
 }
 
-/* Banner & Avatar */
 .banner {
   width: 100%;
   height: 140px;
@@ -93,17 +91,6 @@ body::before {
   box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
 }
 
-.status-dot {
-  width: 14px;
-  height: 14px;
-  background-color: #22c55e;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  border: 2px solid #0a0a0f;
-}
-
 .username {
   font-size: 1.5rem;
   letter-spacing: 2px;
@@ -132,7 +119,7 @@ body::before {
   margin-top: 14px;
 }
 
-.social-icons a {
+.social-icons a, .social-btn {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
   width: 40px;
@@ -144,16 +131,16 @@ body::before {
   font-size: 1.1rem;
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.social-icons a:hover {
+.social-icons a:hover, .social-btn:hover {
   background: #ff4d6d;
   border-color: #ff4d6d;
   transform: translateY(-2px);
 }
 
-/* Divider LINKS */
 .divider {
   width: 100%;
   text-align: left;
@@ -178,7 +165,6 @@ body::before {
   color: #ff758c;
 }
 
-/* Links List & Cards */
 .links-list {
   width: 100%;
   display: flex;
@@ -230,7 +216,7 @@ body::before {
   color: #94a3b8;
 }
 
-/* Khung xổ xuống mượt mà (Smooth Accordion Animation) */
+/* Expand Cards mượt mà */
 .expand-card {
   width: 100%;
   background: rgba(15, 15, 25, 0.9);
@@ -238,7 +224,7 @@ body::before {
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-  max-height: 2000px;
+  max-height: 2500px;
   opacity: 1;
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -248,9 +234,8 @@ body::before {
               border-color 0.3s ease;
 }
 
-/* Trạng thái thu gọn/đóng lại mượt mà */
 .expand-card.hidden {
-  display: block !important; /* Ghi đè display:none để hiệu ứng chạy mượt */
+  display: block !important;
   max-height: 0 !important;
   opacity: 0 !important;
   padding-top: 0 !important;
@@ -268,14 +253,58 @@ body::before {
   align-items: center;
 }
 
-.zoom-hint {
-  font-size: 0.75rem;
-  color: #ff758c;
-  margin-bottom: 2px;
+/* Thông báo nảy từ trên xuống */
+.toast-notification {
+  width: 100%;
+  background: linear-gradient(135deg, #ff4d6d, #ff758c);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+  animation: slideDownToast 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@keyframes slideDownToast {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.text-red {
+  color: #ff4d6d;
+  font-weight: 700;
+}
+
+.image-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.row-img {
+  width: calc(50% - 5px) !important;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.full-img {
+  width: 100% !important;
+  border-radius: 12px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+  margin-bottom: 6px;
 }
 
 .clickable-img {
-  width: 100%;
   border-radius: 12px;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -388,7 +417,7 @@ body::before {
   border-radius: 12px;
 }
 
-/* SPOTIFY CARD */
+/* Spotify Card */
 .spotify-card {
   width: 100%;
   background: rgba(18, 18, 18, 0.85);
@@ -444,7 +473,6 @@ body::before {
   color: #b3b3b3;
 }
 
-/* TRẠNG THÁI ĐANG PHÁT NHẠC */
 .playing-status {
   display: flex;
   align-items: center;
@@ -494,7 +522,7 @@ body::before {
   color: #cbd5e1;
 }
 
-/* MODAL XEM ẢNH FULL SCREEN */
+/* Modal xem ảnh */
 .modal {
   position: fixed;
   top: 0;
@@ -573,7 +601,7 @@ body::before {
   user-select: none;
 }
 
-/* NÚT PHÁT NHẠC ĐĨA TRÒN GÓC DƯỚI */
+/* Nút phát nhạc đĩa tròn */
 .music-btn {
   position: fixed;
   bottom: 20px;
@@ -601,9 +629,4 @@ body::before {
 
 .music-btn.paused {
   color: #4b5563;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  }
