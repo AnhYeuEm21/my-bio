@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bio Link</title>
+  <title>Bio Link - Nagikaze</title>
   <link rel="stylesheet" href="style.css" />
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -14,10 +14,12 @@
   <audio id="bg-music" loop>
     <source src="music1.mp3" type="audio/mpeg" />
   </audio>
-  <!-- CHÈN ĐOẠN NÀY VÀO DÒNG 17 -->
-  <button id="music-toggle-btn" class="music-btn" title="Bật/Tắt nhạc">
-    <i class="fa-solid fa-compact-disc fa-spin"></i>
+
+  <!-- Nút bật/tắt nhạc góc dưới màn hình -->
+  <button id="music-toggle-btn" class="music-btn paused" title="Bật/Tắt nhạc">
+    <i class="fa-solid fa-compact-disc"></i>
   </button>
+
   <!-- TRANG CHÍNH (MAIN PAGE) -->
   <div id="main-page" class="container">
     <!-- Banner Header -->
@@ -43,12 +45,11 @@
       </div>
     </div>
 
-    <!-- Phần chữ LINKS -->
+    <!-- LINK SECTION -->
     <div class="divider">
       <span>LINK <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
-    <!-- Links List -->
     <div class="links-list">
       <!-- Link 1: MY SERVER DISCORD -->
       <div class="link-card" id="btn-toggle-server">
@@ -59,23 +60,20 @@
         </div>
       </div>
 
-      <!-- Khung xổ xuống của Server Discord -->
+      <!-- Khung xổ xuống Server Discord -->
       <div id="server-section" class="expand-card hidden">
         <div class="server-preview-box">
           <p class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Bấm vào ảnh để phóng to & di chuyển</p>
 
-          <!-- Dòng chữ trước ảnh -->
           <div class="section-desc">
             <p>• Ảnh toi làm bằng Gemini, ae xem đc thì xem :))))</p>
           </div>
           <img src="server.png" alt="Server Discord Preview" id="server-preview-img" class="clickable-img" />
           
-          <!-- Dòng chữ mô tả trước video -->
           <div class="section-desc">
             <p>• Video toi quay làm ví dụ thôi, ae đừng chê 🥺</p>
           </div>
 
-          <!-- Video dưới phần ảnh -->
           <div class="video-container">
             <video controls controlsList="nodownload" poster="thumib.png">
               <source src="video.mp4" type="video/mp4" />
@@ -87,12 +85,13 @@
           </a>
         </div>
       </div>
+    </div>
 
+    <!-- SERVICE SECTION -->
     <div class="divider">
       <span>SERVICE <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
-    <!-- Links List -->
     <div class="links-list">
       <!-- Link 2: MUA HỘ ĐỒ -->
       <div class="link-card" id="btn-toggle-service">
@@ -103,31 +102,30 @@
         </div>
       </div>
 
-      <!-- Khung xổ xuống Dịch vụ mua hộ -->
+      <!-- Khung xổ xuống Mua hộ -->
       <div id="service-section" class="expand-card hidden">
         <div class="service-box">
           <ul class="service-list">
-            <li><i class="fa-solid fa-check"></i> Mua các loại đồ, game cần thẻ VISA, BANK (Ko nhận đơn vượt quá khả năng) </li>
-            <li><i class="fa-solid fa-check"></i> Uy tín, nhanh gọn, nhận trong ngày (Trừ khi đang bận) </li>
+            <li><i class="fa-solid fa-check"></i> Mua các loại đồ, game cần thẻ VISA, BANK (Ko nhận đơn vượt quá khả năng)</li>
+            <li><i class="fa-solid fa-check"></i> Uy tín, nhanh gọn, nhận trong ngày (Trừ khi đang bận)</li>
           </ul>
           <div class="service-note">
-            <strong>Lưu ý 🛑: Nhận bank tiền nếu có tài khoản, còn giao dịch bằng thẻ thì chỉ nhận thẻ Garena 🐔 và thẻ Viettel 🇻🇳 (Ko nhận thẻ khác giá thẻ quy đổi quá cao) </strong>
+            <strong>Lưu ý 🛑: Nhận bank tiền nếu có tài khoản, còn giao dịch bằng thẻ thì chỉ nhận thẻ Garena 🐔 và thẻ Viettel 🇻🇳 (Ko nhận thẻ khác giá thẻ quy đổi quá cao)</strong>
           </div>
-          <!-- Dòng chữ thêm theo yêu cầu -->
           <div class="service-contact-text">
             Nếu có nhu cầu thì ib 1 trong 3 MXH ở trên (Ưu tiên discord)
           </div>
         </div>
       </div>
-   
-    <!-- Phần chữ LINKS -->
+    </div>
+
+    <!-- DONATE SECTION -->
     <div class="divider">
       <span>DONATE <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
-    <!-- Links List -->
     <div class="links-list">
-      <!-- Link 3: DONATE ME AT HERE -->
+      <!-- Link 3: DONATE -->
       <div class="link-card" id="btn-open-donate">
         <div class="link-icon"><i class="fa-solid fa-qrcode"></i></div>
         <div class="link-info">
@@ -144,43 +142,35 @@
           <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
         </div>
       </div>
-      <!-- Phần chữ LINKS -->
+    </div>
+
+    <!-- FAVORITE SECTION -->
     <div class="divider">
       <span>FAVORITE <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
-    <!-- Links List -->
     <div class="links-list">
-    <!-- KHUNG SPOTIFY PLAYER -->
-    <div class="spotify-card">
-      <div class="spotify-header">
-        <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
-      </div>
-      <div class="spotify-body">
-        <img src="anh.jpg" alt="Song Avatar" class="song-avatar" />
-        
-        <div class="song-details">
-          <div class="song-info">
-            <h4 class="song-title">Little Wishes</h4>
-            <p class="song-artist">Tokyo Music Walker</p>
-          </div>
+      <!-- KHUNG SPOTIFY PLAYER ĐÃ TỐI ƯU -->
+      <div class="spotify-card">
+        <div class="spotify-header">
+          <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
+        </div>
+        <div class="spotify-body">
+          <img src="anh.jpg" alt="Song Avatar" class="song-avatar" />
           
-          <div class="progress-container">
-            <span id="current-time">0:00</span>
-            <input type="range" id="seek-bar" value="0" max="100" />
-            <span id="duration-time">0:00</span>
-          </div>
-
-          <div class="player-controls">
-            <button id="btn-rewind" title="Tua lùi 10s">
-              <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
-            </button>
-            <button id="btn-play-pause" class="play-btn" title="Phát/Tắt">
-              <i class="fa-solid fa-play" id="play-icon"></i>
-            </button>
-            <button id="btn-forward" title="Tua nhanh 10s">
-              <span>10s</span> <i class="fa-solid fa-rotate-right"></i>
-            </button>
+          <div class="song-details">
+            <div class="song-info">
+              <h4 class="song-title">Little Wishes</h4>
+              <p class="song-artist">Tokyo Music Walker</p>
+            </div>
+            
+            <!-- Dòng chữ Đang phát nhạc chuyển động -->
+            <div id="now-playing-status" class="playing-status paused">
+              <i class="fa-solid fa-music"></i>
+              <div class="marquee-wrapper">
+                <span class="status-text">Đang phát nhạc... • Little Wishes - Tokyo Music Walker</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -191,19 +181,15 @@
     </footer>
   </div>
 
-  <!-- MODAL XEM ẢNH PHÓNG TO (IMAGE VIEWER) -->
+  <!-- MODAL XEM ẢNH PHÓNG TO -->
   <div id="image-modal" class="modal hidden">
     <div class="modal-backdrop"></div>
-    
-    <!-- Thanh công cụ Zoom & Close -->
     <div class="modal-toolbar">
       <button id="zoom-in-btn" title="Phóng to"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
       <button id="zoom-out-btn" title="Thu nhỏ"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
       <button id="zoom-reset-btn" title="Về mặc định"><i class="fa-solid fa-arrows-rotate"></i></button>
       <button id="modal-close-btn" class="close-btn" title="Đóng"><i class="fa-solid fa-xmark"></i></button>
     </div>
-
-    <!-- Khung chứa ảnh di chuyển -->
     <div class="modal-body" id="modal-body">
       <img src="" alt="Zoomable Image" id="modal-img" />
     </div>
@@ -211,5 +197,4 @@
 
   <script src="script.js"></script>
 </body>
-    </html>
-      
+</html>
