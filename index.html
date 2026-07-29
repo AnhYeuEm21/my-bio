@@ -42,7 +42,7 @@
 
     <!-- Phần chữ LINKS -->
     <div class="divider">
-      <span>LINKS <i class="fa-solid fa-chevron-down"></i></span>
+      <span>LINK <i class="fa-solid fa-chevron-down"></i></span>
     </div>
 
     <!-- Links List -->
@@ -60,13 +60,37 @@
       <div id="server-section" class="expand-card hidden">
         <div class="server-preview-box">
           <p class="zoom-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Bấm vào ảnh để phóng to & di chuyển</p>
+
+          <!-- Dòng chữ trước ảnh -->
+          <div class="section-desc">
+            <p>• Ảnh toi làm bằng Gemini, ae xem đc thì xem :))))</p>
+          </div>
           <img src="server.png" alt="Server Discord Preview" id="server-preview-img" class="clickable-img" />
+          
+          <!-- Dòng chữ mô tả trước video -->
+          <div class="section-desc">
+            <p>• Video toi quay làm ví dụ thôi, ae đừng chê 🥺</p>
+          </div>
+
+          <!-- Video dưới phần ảnh -->
+          <div class="video-container">
+            <video controls controlsList="nodownload" poster="thumib.png">
+              <source src="video.mp4" type="video/mp4" />
+              Trình duyệt của bạn không hỗ trợ thẻ video.
+            </video>
+          </div>
           <a href="https://discord.gg/2P2qMRatau" target="_blank" class="server-join-btn">
             Bấm vô dòng này để vô server nhé!
           </a>
         </div>
       </div>
 
+    <div class="divider">
+      <span>SERVICE <i class="fa-solid fa-chevron-down"></i></span>
+    </div>
+
+    <!-- Links List -->
+    <div class="links-list">
       <!-- Link 2: MUA HỘ ĐỒ -->
       <div class="link-card" id="btn-toggle-service">
         <div class="link-icon"><i class="fa-solid fa-gamepad"></i></div>
@@ -84,12 +108,16 @@
             <li><i class="fa-solid fa-check"></i> Uy tín, nhanh gọn, nhận trong ngày (Trừ khi đang bận) </li>
           </ul>
           <div class="service-note">
-            <strong>Lưu ý 🛑: Nhận bank tiền nếu có tài khoản, còn giao dịch bằng thẻ thì chỉ nhận thẻ Garena 🐔 và thẻ Viettel 🇻🇳</strong>
+            <strong>Lưu ý 🛑: Nhận bank tiền nếu có tài khoản, còn giao dịch bằng thẻ thì chỉ nhận thẻ Garena 🐔 và thẻ Viettel 🇻🇳 (Ko nhận thẻ khác giá thẻ quy đổi quá cao) </strong>
+          </div>
+          <!-- Dòng chữ thêm theo yêu cầu -->
+          <div class="service-contact-text">
+            Nếu có nhu cầu thì ib 1 trong 3 MXH ở trên (Ưu tiên discord)
           </div>
         </div>
       </div>
-    </div>
-   <!-- Phần chữ LINKS -->
+   
+    <!-- Phần chữ LINKS -->
     <div class="divider">
       <span>DONATE <i class="fa-solid fa-chevron-down"></i></span>
     </div>
@@ -113,48 +141,7 @@
           <img src="qr.jpg" alt="QR BIDV" class="qr-image" />
         </div>
       </div>
-    <!-- Phần chữ LINKS -->
-    <div class="divider">
-      <span>FAVORITE <i class="fa-solid fa-chevron-down"></i></span>
-    </div>
-
-    <!-- Links List -->
-    <div class="links-list">
-    <!-- KHUNG SPOTIFY PLAYER -->
-    <div class="spotify-card">
-      <div class="spotify-header">
-        <i class="fa-brands fa-spotify"></i> MY FAVORITE MUSIC
-      </div>
-      <div class="spotify-body">
-        <img src="https://i.ytimg.com/vi/ToYMt2mDer4/hqdefault.jpg" alt="Song Avatar" class="song-avatar" />
-        
-        <div class="song-details">
-          <div class="song-info">
-            <h4 class="song-title">MAITE</h4>
-            <p class="song-artist">Lancelot</p>
-          </div>
-          
-          <div class="progress-container">
-            <span id="current-time">0:00</span>
-            <input type="range" id="seek-bar" value="0" max="100" />
-            <span id="duration-time">0:00</span>
-          </div>
-
-          <div class="player-controls">
-            <button id="btn-rewind" title="Tua lùi 10s">
-              <i class="fa-solid fa-rotate-left"></i> <span>10s</span>
-            </button>
-            <button id="btn-play-pause" class="play-btn" title="Phát/Tắt">
-              <i class="fa-solid fa-play" id="play-icon"></i>
-            </button>
-            <button id="btn-forward" title="Tua nhanh 10s">
-              <span>10s</span> <i class="fa-solid fa-rotate-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    
     <footer class="footer">
       Powered by <strong>Nagikaze</strong>
     </footer>
@@ -180,4 +167,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+    </html>
