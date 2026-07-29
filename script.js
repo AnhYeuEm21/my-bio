@@ -56,27 +56,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Toggle ẩn/hiện Server Section
+  // Toggle ẩn/hiện Server Section (Mượt mà)
   btnToggleServer.addEventListener('click', () => {
     serverSection.classList.toggle('hidden');
     if (!serverSection.classList.contains('hidden')) {
-      serverSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        serverSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 150);
     }
   });
 
-  // Toggle ẩn/hiện Donate Section
+  // Toggle ẩn/hiện Donate Section (Mượt mà)
   btnOpenDonate.addEventListener('click', () => {
     donateSection.classList.toggle('hidden');
     if (!donateSection.classList.contains('hidden')) {
-      donateSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        donateSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 150);
     }
   });
 
-  // Toggle ẩn/hiện Dịch vụ Mua hộ Section
+  // Toggle ẩn/hiện Dịch vụ Mua hộ Section (Mượt mà)
   btnToggleService.addEventListener('click', () => {
     serviceSection.classList.toggle('hidden');
     if (!serviceSection.classList.contains('hidden')) {
-      serviceSection.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        serviceSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 150);
     }
   });
 
